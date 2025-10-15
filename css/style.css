@@ -1,0 +1,198 @@
+/* =================================================================== */
+/* CSS organizado y comentado para formación: estructura y media queries */
+/* =================================================================== */
+
+/* ---------- Fuentes externas ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* ---------- Reset / base (normalización mínima) ---------- */
+/* Mantener márgenes y paddings a 0 para evitar inconsistencias entre navegadores */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    /* jerarquía de fuentes */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ---------- Utilidades para listas y layout flex básico ---------- */
+.nav-ul,
+.sign-buttons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    /* Usamos flex para alinear elementos en línea */
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+/* =================================================================== */
+/* Navegación (header)                                                 */
+/* - .nav-first-section: enlaces secundarios                         */
+/* - .nav-second-section: logo, buscador y botones de sesión         */
+/* =================================================================== */
+
+.nav-first-section {
+    padding: 1rem 2rem;
+    border-bottom: 1px solid gray;
+}
+
+.nav-second-section {
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.nav-ul .nav-links {
+    margin-right: 1rem;
+    /* separación entre links */
+}
+
+.nav-ul .nav-links a,
+.sign-buttons a {
+    text-decoration: none;
+    color: black;
+    font-weight: 550;
+    /* valor no estándar pero mantenido del original */
+    font-size: .9rem;
+}
+
+.heart:hover {
+    transition: .4s;
+    color: rgb(255, 0, 195);
+}
+
+.logo img {
+    width: 70px;
+    /* tamaño fijo como en el original */
+    height: auto;
+    display: block;
+}
+
+
+/* ---------- Botones de sesión y búsqueda ---------- */
+.sign-buttons li,
+.search-bar button {
+    margin-right: 1rem;
+    padding: .5rem .9rem;
+    border: none;
+}
+
+.sign-buttons .up {
+    border: 1px solid rgba(128, 128, 128, 0.349);
+}
+
+.search-bar {
+    /* Usamos flex para mantener input + botón en línea */
+    display: flex;
+    flex-wrap: nowrap;
+    order: 3;
+    /* orden por defecto en mobile según el original */
+    margin-top: 1rem;
+}
+
+.search-bar input {
+    padding: .4rem;
+    border: none;
+    background: transparent;
+}
+
+.search-bar button {
+    background-color: #231F20;
+    color: white;
+    cursor: pointer;
+}
+
+.sign-buttons {
+    order: 2;
+    /* orden por defecto en mobile según el original */
+}
+
+
+/* =================================================================== */
+/* Media queries explicadas (ejemplos prácticos)                      */
+/* - min-width:480px cambia la disposición del buscador y botones     */
+/* - max-width:720px oculta el corazón para pantallas pequeñas       */
+/*                                                                  */
+/* Nota didáctica: usar min-width (mobile-first) es una buena práctica. */
+/* Aquí mantenemos las mismas condiciones que el original, pero con   */
+/* comentarios que ayudan a entender el porqué.                      */
+/* =================================================================== */
+
+@media (min-width: 480px) {
+
+    /* En pantallas >= 480px reservamos más espacio para el search */
+    .search-bar {
+        margin-right: .6rem;
+        order: 2;
+        /* mover el search hacia la izquierda del área */
+        margin-top: 0;
+        width: 50%;
+    }
+
+    .search-bar input {
+        width: 80%;
+        /* el input ocupa parte del espacio del search */
+    }
+
+    .sign-buttons {
+        order: 3;
+        /* colocamos los botones al final en pantallas anchas */
+    }
+}
+
+@media (max-width: 720px) {
+
+    /* En pantallas <= 720px ocultamos elementos no esenciales */
+    .heart {
+        display: none;
+    }
+}
+
+
+/* =================================================================== */
+/* Componentes de demostración (no relacionados con la navegación)    */
+/* Se mantienen exactamente las mismas reglas funcionales que en el   */
+/* archivo original, para no alterar el comportamiento visual.       */
+/* =================================================================== */
+
+.prueba {
+    width: 300px;
+    height: 300px;
+    background-color: red;
+}
+
+.prueba p {
+    display: none;
+    /* el texto está oculto por defecto */
+}
+
+.prueba:hover p {
+    display: block;
+    /* al hacer hover se muestra el texto */
+}
+
+/* =================================================================== */
+/* Fin del archivo - resumen didáctico:                               */
+/* - Agrupamos el CSS por secciones para facilidad de lectura.       */
+/* - Comentarios explican decisiones y el uso de media queries.      */
+/* - No se cambiaron nombres de clases ni valores funcionales, para  */
+/*   preservar el resultado visual original.                         */
+/* =================================================================== */

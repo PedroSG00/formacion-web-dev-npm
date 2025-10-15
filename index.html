@@ -1,16 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
+    <!-- Metadatos básicos: charset y viewport son imprescindibles para buena práctica -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>npm | clon</title>
 
+    <!-- Enlace al CSS principal. Mantuvimos la misma ruta para no cambiar comportamiento -->
     <link rel="stylesheet" href="./css/style.css">
+
+    <!-- Nota didáctica: siempre coloca estilos externos en el <head> para evitar FOUC (flash of unstyled content) -->
 </head>
 
 <body>
-    <h1>Hola mundo</h1>
+    <!-- Header / navegación principal -->
+    <header>
+        <!-- Barra superior: enlaces de navegación secundarios (Pro, Teams, Pricing, Documentation) -->
+        <nav>
+            <!-- Primera sección de la nav: links secundarios y un icono/«heart» -->
+            <div class="nav-first-section">
+                <!-- Lista sin semántica de navegación adicional. Se usa <ul> porque son enlaces agrupados -->
+                <ul class="nav-ul">
+                    <!-- El corazón es un elemento visual; mantenemos el contenido original -->
+                    <li class="nav-links heart" aria-hidden="true">❤</li>
+
+                    <!-- Cada enlace abre en nueva pestaña en el ejemplo original (target="_blank").
+                         En producción revisa si realmente quieres abrir en nueva pestaña por accesibilidad. -->
+                    <li class="nav-links">
+                        <a href="http://" target="_blank" rel="noopener noreferrer">Pro</a>
+                    </li>
+                    <li class="nav-links">
+                        <a href="http://" target="_blank" rel="noopener noreferrer">Teams</a>
+                    </li>
+                    <li class="nav-links">
+                        <a href="http://" target="_blank" rel="noopener noreferrer">Pricing</a>
+                    </li>
+                    <li class="nav-links">
+                        <a href="http://" target="_blank" rel="noopener noreferrer">Documentation</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Segunda sección de la nav: logo, buscador y botones de sesión -->
+            <div class="nav-second-section">
+                <!-- Logo: conserva la imagen existente -->
+                <div class="logo">
+                    <img src="./img/npm-logo.png" alt="Logo npm">
+                </div>
+
+                <!-- Search bar: input + botón. Comentarios explican su ordenamiento responsive en CSS -->
+                <div class="search-bar">
+                    <input type="text" placeholder="Search packages" aria-label="Buscar paquetes">
+                    <button type="button">Search</button>
+                </div>
+
+                <!-- Botones de login / signup -->
+                <ul class="sign-buttons">
+                    <li class="up">
+                        <a href="http://" target="_blank" rel="noopener noreferrer">Sign Up</a>
+                    </li>
+                    <li>
+                        <a class="in" href="http://" target="_blank" rel="noopener noreferrer">Sign In</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenido principal de la página -->
+    <main>
+        <!-- Ejemplo de caja de prueba (se conserva tal cual). Comentarios en CSS explican el comportamiento hover -->
+        <section class="prueba">
+            <p>Hola</p>
+        </section>
+    </main>
+
+    <!-- Footer vacío en el original; se deja para futuras mejoras y para mantener estructura semántica -->
+    <footer></footer>
+
 </body>
 
 </html>
